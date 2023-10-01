@@ -1,0 +1,97 @@
+body {
+    background-color: #000000;
+    overflow: hidden; /* tudo oq tiver sobrando fora do body vai ser escondido */
+}
+
+
+main::after { /*pseudoelemento */
+    content: "";  /* adicionando conteudo pro elemento after/depois do main */
+    position: fixed; /*elemento fixo na tela*/
+    top: 0; /*apareder lá em cima*/
+    left: 0; /*sempre posicionado á esquerda */
+    min-height: 100vh;
+    width: 80vw; /* vw usar pra largura*/
+
+    background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0) 65%) no-repeat; /* gradient = degrade */
+}
+main .personagem {
+    display: none; /* display none esconde as imagens/ main= sendo bem específico, que está dentro do /main */
+    height: 100vh; /* vh = unidade de medida, altura da tela do dispositivo de acesso(celular/pc) */
+}
+
+main .personagem.selecionado {  /* quando vc junta o .personagem.selecionado vc diz que ele está na mesma classe, se nao quiser tem q separar*/
+    display: block;
+}
+
+main .personagem .imagem {
+      width: 100%;   /* tem que se encaixar na largura e altura 100% do espaço que ele tem(tela inteira)*/
+      height: 100%;
+      object-fit: cover; /*ajusta a imagem distorcida, ajeitando certinho com o width e height*/
+}
+
+.conteudo {
+    position: absolute; /* Destaca, fica por cima do menu(Tirar o elemento do fluxo normal da página)*/
+    top: 0; /* Sobe lá pra cima, na posição 0 (Mais do topo) */
+    left: 120px;  /* 120 pixels da borda da esquerda de espaçamento*/
+    display: flex; /* */
+    flex-direction: column; /* Vai dispor o elemento em coluna, como se fosse um título e subtitulo */
+    justify-content: center; /* Alinha o texto ao centro */
+    min-height: 100vh; /* altura mínima, tamanho total da tela */
+    max-width: 380px; /* Largura pro texto*/
+    z-index: 1; /* eixo z, ficar por cima dos outros elementos */
+ }
+
+ .conteudo .nome-personagem {  /* usa o backgroun-color pra saber oq vc ta mexendo */
+    color: #FFFFFF;
+    font-size: 48px;
+    font-family: "Secular One"; /*fonte do titulo*/
+    font-weight: 400;
+    margin-bottom: 20px;  /*Espaçamento entre titulo e a legenda/ bottom, margem embaixo do nome */
+ }
+
+ .conteudo .descricao {
+    color: #FFFFFF;
+    font-family: "Rubik";
+    font-size: 16px; /* tamanho da fonte */
+    line-height: 24px; /*altura entre linhas*/
+ }
+
+.conteudo .logo {
+    background-image: url("../imagens/one-piece-logo.png"); /* ../ significa que estamos voltando uma pasta*/
+    background-size: cover; /* cobre a área abaixo que foi definida abaixo */
+    width: 230px;
+    height: 100px;
+    margin-bottom: 35px;
+} 
+
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3); /*0.3 é a opacidade */
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center; /*alinhamento vertical */
+    align-items: center;  /* alinhamento horizontal */
+    gap: 10px;  /* espaçamento entre elementos verticais, vão */
+
+}
+
+.botoes .botao {
+    border: none; /* tira a borda branca */
+    background: #000000; /* O background-color é específico pra cor*/
+    cursor: pointer; /* usar p item clicavel */
+    border-radius: 50%;
+}
+
+.botoes .botao img {
+   border-radius: 50%;
+}
+
+.botoes .botao.selecionado {
+    transform: scale(1.2); /*aumento do botao selecionado pra 20% a mais que os outros */
+    box-shadow: 0 0 10px #D9D9D9; /* sombra do elemento */
+}
